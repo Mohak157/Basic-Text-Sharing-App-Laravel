@@ -23,7 +23,7 @@
 
                     <div class="mt-4 flex items-center justify-end">
                         <button type="submit" class="btn btn-primary btn-sm">
-                            Chirp
+                            Send
                         </button>
                     </div>
 
