@@ -29,7 +29,7 @@
 
     <footer class="footer footer-center p-5 bg-base-300 text-base-content text-xs">
         <div>
-            <p>© 2026 Text-Sharing - Built with Laravel </p>
+            <p>Text-Sharing - Built with Laravel </p>
         </div>
     </footer>
 </body>
