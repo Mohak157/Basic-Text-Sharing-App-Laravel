@@ -28,4 +28,32 @@ class MsgController extends Controller
         return redirect('/')->with("success","message created");
         
     }
+
+    public function edit (Message $message){
+        return view ('messages.edit',compact('message'));
+    }
+
+    public function update(Request $request , Message $message){
+        $validate = $request ->validate(
+            [
+                'message' => 'required|string|max:255',
+            ]
+        );
+
+            $message -> update($validate);
+
+        
+        return redirect ('/') -> with ("success","message updated");
+        
+    }
+
+    public function destroy(Message $message){
+      
+
+        $message -> delete();
+
+        return redirect ('/') -> with ("success","message deleted");
+        
+
+    }
 }

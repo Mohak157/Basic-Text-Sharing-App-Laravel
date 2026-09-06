@@ -21,17 +21,36 @@
                 </div>
             @endif
 
-            <div class="min-w-0">
+            <div class="min-w-0 flex-1">
+                <div class="flex justify-between w-full">
                 <div class="flex items-center gap-1">
                     <span class="text-sm font-semibold">{{ $message->user ? $message->user->name : 'Anonymous' }}</span>
                     <span class="text-base-content/60">·</span>
                     <span class="text-sm text-base-content/60">{{ $message->created_at->diffForHumans() }}</span>
                 </div>
 
+                <div class="flex gap-1">
+                    <a href="/messages/{{$message->id}}/edit" class="btn btn-ghost btn-xs">
+                    Edit
+                </a>
+                <form method="POST" action="/messages/{{$message->id}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Are you sure you want to delete this message!')" class="btn btn-ghost btn-xs text-error">
+                        Delete
+
+                    </button>
+                </form>
+
+
+                </div>
+                </div>
+
                 <p class="mt-1">
                     {{ $message->message }}
                 </p>
             </div>
+
         </div>
     </div>
 </div>
