@@ -4,6 +4,7 @@ use App\Http\Controllers\MsgController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\Register;
 use App\Http\Controllers\Auth\Logout;
+use App\Http\Controllers\Auth\Login;
 
 Route::get('/',[MsgController::class,'index']);
 
@@ -18,3 +19,5 @@ Route::middleware('auth')->group(function(){
 Route::view('/register','auth.register') ->middleware('guest')->name('register');
 Route::post('/register',Register::class)->middleware('guest');
 Route::post('/logout',Logout::class)->middleware('auth');
+Route::view('/login','auth.login')->middleware('guest');
+Route::post('/login',Login::class)->middleware('guest');
