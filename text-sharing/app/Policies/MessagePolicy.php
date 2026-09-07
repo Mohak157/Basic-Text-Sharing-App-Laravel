@@ -37,7 +37,7 @@ class MessagePolicy
      */
     public function update(User $user, Message $message): bool
     {
-        return false;
+        return $message->user()->is($user);
     }
 
     /**
@@ -45,7 +45,7 @@ class MessagePolicy
      */
     public function delete(User $user, Message $message): bool
     {
-        return false;
+         return $message->user()->is($user);
     }
 
     /**
